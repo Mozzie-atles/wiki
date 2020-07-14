@@ -1,0 +1,31 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+Edit wiki
+{% endblock %}
+
+{% block body %}
+<div>
+    <form action="{% url 'wikip:edit' %}" method="POST">
+        {% csrf_token %}
+        <div style="margin-bottom: 10px;">
+
+            <input name="titles" type="text" value="{{ pretitle }}"> 
+        </div>
+        <div>
+
+            <textarea name="content" cols="10" rows="10"
+                placeholder="Eddit content for this wiki">{{ precontent }}</textarea>
+        </div>
+        <div>
+            {% if xin == 1 %}
+            <div class="alert alert-primary" role="alert">
+                This entry already exists
+            </div>
+            {% endif %}
+            <input type="submit" class="btn btn-dark" value="Save">
+        </div>
+    </form>
+</div>
+
+{% endblock %}

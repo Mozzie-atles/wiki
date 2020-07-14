@@ -1,0 +1,31 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+New wiki
+{% endblock %}
+
+{% block body %}
+<div>
+    <form action="{% url 'wikip:newtab' %}" method="POST">
+        {% csrf_token %}
+        <div style="margin-bottom: 10px;">
+
+            <input name="entry_name" type="text" placeholder="Enter new title">
+        </div>
+        <div>
+
+            <textarea name="content" id="" cols="30" rows="10"
+                placeholder="Enter Marcdown content for your wiki"></textarea>
+        </div>
+        <div>
+            {% if xin == 1 %}
+            <div class="alert alert-primary" role="alert">
+                This entry already exists
+            </div>
+            {% endif %}
+            <input type="submit" class="btn btn-dark">
+        </div>
+    </form>
+</div>
+
+{% endblock %}

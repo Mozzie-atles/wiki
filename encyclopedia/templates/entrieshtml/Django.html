@@ -1,0 +1,20 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+{{ name }}
+
+{% endblock %}
+
+{% block body %}
+<h1>Django</h1>
+<p>Django is a web framework written using <a href="/Python">Python</a> that allows for the design of web applications that generate <a href="/HTML">HTML</a> dynamically.</p>
+
+<form action="{% url 'wikip:edit' %}" method="POST">
+    {% csrf_token %}
+    <div style="margin-top: 50px;">
+        <input type="text" value="{{ name }}" hidden name="title">
+        <input type="submit" value="Edit" class="btn btn-dark">
+    </div>
+</form>
+
+{% endblock %}

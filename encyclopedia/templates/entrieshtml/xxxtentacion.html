@@ -1,0 +1,10 @@
+{% extends 'encyclopedia/layout.html' %}{% block title %}{{ name }}{% endblock %}{% block body %}<h1>xxxtentacion</h1>
+
+<p>xxxtentacion is a rapper from florida , sadly he passed away at the age of 20</p>
+<form action="{% url 'wikip:edit' %}" method="GET">
+    {% csrf_token %}
+    <div style = " margin-top: 50px;">
+    <input type="text" value="{{ name }}" hidden name="pretitle">
+    <input type="submit" value="Edit" class="btn btn-dark">
+    </div>
+</form>{% endblock %}
