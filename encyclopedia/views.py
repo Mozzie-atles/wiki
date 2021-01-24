@@ -79,7 +79,7 @@ def newtab(request, method=["POST"]):
         titles = request.POST.get('entry_name')
         content = request.POST.get('content')
 
-        if os.path.exists(f'C:/Users/erfan/Desktop/wiki/encyclopedia/templates/entrieshtml/{titles}.html'):
+        if os.path.exists(f'C:/Users/erfan/Desktop/Mozzie-atles/encyclopedia/templates/entrieshtml/{titles}.html'):
             return render(request, "encyclopedia/newtab.html", {
                 "xin": 1
             })
@@ -89,7 +89,7 @@ def newtab(request, method=["POST"]):
                 f.write(ali)
 
             filepath = os.path.join(
-                'C:/Users/erfan/Desktop/wiki/encyclopedia/templates/entrieshtml', f'{titles}.html')
+                'C:/Users/erfan/Desktop/Mozzie-atles/encyclopedia/templates/entrieshtml', f'{titles}.html')
 
             with open(filepath, 'w') as f:
                 x = markdown(ali)
@@ -133,7 +133,7 @@ def edit(request):
             f.write(content)
 
         filepath = os.path.join(
-            'C:/Users/erfan/Desktop/wiki/encyclopedia/templates/entrieshtml', f'{titles}.html')
+            'C:/Users/erfan/Desktop/Mozzie-atles/encyclopedia/templates/entrieshtml', f'{titles}.html')
         with open(filepath, 'w') as f:
             x = markdown(content)
             cheat = ["{% extends 'encyclopedia/layout.html' %}",
